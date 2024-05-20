@@ -41,6 +41,7 @@ public class Utils {
         while(fileReader.hasNextLine()) {
             String[] splitLine = fileReader.nextLine().split(DELIMITER);
             if(splitLine[0].equals(username) && splitLine[1].equals(password)) {
+                fileReader.close();
                 return new User(username, password);
             }
         }
@@ -72,7 +73,7 @@ public class Utils {
             if (oldPassword.equals(newPassword) || oldUsername.equals(newUsername))
                 System.out.println("New username or password cannot be the same as the old username or password");
             else {
-                user.setPassword(newUsername);
+                user.setName(newUsername);
                 user.setPassword(newPassword);
             }
         } while(oldPassword.equals(newPassword) && oldUsername.equals(newUsername));
@@ -88,11 +89,14 @@ public class Utils {
         }
         inputFile.close();
 
+        tempPrintWriter.flush();
         tempPrintWriter.close();
         tempFileWriter.close();
 
-        userData.delete();
+        boolean anything = userData.delete();
+        System.out.println(anything);
         File dump = new File(FILENAME);
-        tempFile.renameTo(dump);
+        anything = tempFile.renameTo(dump);
+        System.out.println(anything);
     }
 }
