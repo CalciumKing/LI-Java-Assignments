@@ -76,7 +76,7 @@ public class Utils {
                 user.setName(newUsername);
                 user.setPassword(newPassword);
             }
-        } while(oldPassword.equals(newPassword) && oldUsername.equals(newUsername));
+        } while(oldPassword.equals(newPassword) || oldUsername.equals(newUsername));
         input.close();
 
         Scanner inputFile = new Scanner(userData);
