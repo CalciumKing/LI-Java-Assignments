@@ -12,6 +12,7 @@ public class Main {
             case 1 -> login();
             case 2 -> register();
             case 3 -> update();
+            case 4 -> System.out.println();
             default -> System.out.println("That is not an acceptable answer, program ending");
         }
     }

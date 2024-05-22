@@ -93,10 +93,8 @@ public class Utils {
         tempPrintWriter.close();
         tempFileWriter.close();
 
-        boolean anything = userData.delete();
-        System.out.println(anything);
+        userData.delete();
         File dump = new File(FILENAME);
-        anything = tempFile.renameTo(dump);
-        System.out.println(anything);
+        tempFile.renameTo(dump);
     }
 }
